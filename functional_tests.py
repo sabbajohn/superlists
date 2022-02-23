@@ -52,7 +52,7 @@ class NewVisitorTest(unittest.TestCase):
 
         # A pagina é atualizada novamente e agora mostra os dois itens em sua lista
         self.check_for_row_in_list_table('1: Buy peacock feathers')
-        self.check_for_row_in_list_table('2: Use peacock to make a fly')
+        self.check_for_row_in_list_table('2: Use peacock feathers to make a fly')
         # John se pergunta se o site lembrará de sua lista. Então nota
         # que o site gerou um URL único para ele -- há um pequeno
         # texto explicativo para isso.
