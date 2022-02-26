@@ -114,3 +114,29 @@ class NewVisitorTest(LiveServerTestCase):
         self.assertIn('Buy milk', page_text)
 
         #Satisfeitos, ambos voltam a dormir
+
+    def test_layout_and_styling(self):
+        # John vai até a homepage
+        self.browser.get(self.live_server_url)
+        self.browser.set_window_size(1024,768)
+
+        # Ele percebe que campo de inserção esta bem centralizado
+
+        inputbox = self.browser.find_element(By.ID, 'id_new_item')
+        self.assertAlmostEqual(
+            inputbox.location['x'] + inputbox.size['width'] / 2,
+            512,
+            delta=10
+        )
+
+        # Ele inicia uma nova lista e percebe que o campo de insercao esta 
+        # bem centralizado também
+        inputbox.send_keys('testing')
+        inputbox.send_keys(Keys.ENTER)
+        self.wait_for_row_in_list_table('1: testing')
+        inputbox = self.browser.find_element(By.ID, 'id_new_item')
+        self.assertAlmostEqual(
+            inputbox.location['x'] + inputbox.size['width'] / 2,
+            512,
+            delta=10
+        )
