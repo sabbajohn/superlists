@@ -82,7 +82,7 @@ class NewVisitorTest(LiveServerTestCase):
 
         # Ele percebe que a sua lista possui um URL unico
         john_list_url = self.browser.current_url
-        self.assertRegex(john_list_url, '/list/.+')
+        self.assertRegex(john_list_url, '/lists/.+')
 
         # Agora um novo usuario, Francis, chega ao site
         ## Nos utilizamos uma nova sessão do navegador para garantir
